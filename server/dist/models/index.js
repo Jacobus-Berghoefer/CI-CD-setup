@@ -1,2 +1,5 @@
-import Question from './Question.js';
-export default { Question };
+import Question from './Question';
+const models = {
+    Question,
+};
+export default models;

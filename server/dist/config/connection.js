@@ -1,5 +1,16 @@
 import dotenv from 'dotenv';
-dotenv.config();
 import mongoose from 'mongoose';
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/techquiz');
-export default mongoose.connection;
+dotenv.config();
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/techquiz';
+// Connect to MongoDB
+mongoose.connect(MONGO_URI);
+const db = mongoose.connection;
+// Log successful connection
+db.once('open', () => {
+    console.log('✅ MongoDB connection established:', MONGO_URI);
+});
+// Log errors
+db.on('error', (err) => {
+    console.error('❌ MongoDB connection error:', err);
+});
+export default db;
