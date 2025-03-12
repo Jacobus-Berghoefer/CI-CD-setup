@@ -2,3 +2,4 @@
 
 ## Tests
 test1
+test2
