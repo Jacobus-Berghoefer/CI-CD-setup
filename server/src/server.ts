@@ -1,7 +1,11 @@
 import express from 'express';
 import db from './config/connection.js';
+import { fileURLToPath } from 'node:url';
 import routes from './routes/index.js';
 import path from 'node:path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3001;
