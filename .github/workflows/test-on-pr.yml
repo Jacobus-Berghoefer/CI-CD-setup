@@ -21,5 +21,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Build the project
+        run: npm run build
+
+      - name: Start Backend
+        run: npm run start &
+
+      - name: Start Frontend
+        run: cd client && npm run dev &
+
+      - name: Wait for Servers to Start
+        run: sleep 10
+
+      - name: Verify Test Files Exist
+        run: ls -la cypress/e2e
+  
+
       - name: Run Cypress tests
-        run: npm run test
+        run: npx cypress run
