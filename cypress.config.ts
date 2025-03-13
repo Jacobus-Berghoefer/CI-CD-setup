@@ -3,7 +3,7 @@ import viteConfig from './vite.config';
 
 export default defineConfig({
   component: {
-    port: 5173,
+    port: 3000,
     devServer: {
       framework: 'react',
       bundler: 'vite',
@@ -12,7 +12,7 @@ export default defineConfig({
   },
 
   e2e: {
-    baseUrl: 'http://localhost:3001',
+    baseUrl: 'http://localhost:3000',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
