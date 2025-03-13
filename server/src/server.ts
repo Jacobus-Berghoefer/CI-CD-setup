@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Register API routes **before** serving static files
-app.use('/api', routes);
+app.use(routes);
 
 // Serve static files for React app **after** API routes
 app.use(express.static(path.join(__dirname, '../client/dist')));
